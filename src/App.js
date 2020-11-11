@@ -8,6 +8,8 @@ const App = () => {
   const addUser = user => {
     setUsers([...users, user]);
   }
+  const deleteUser = password => setUsers(users.filter(user => user.password !== password));
+
   return (
     <div className='container'>
       <h1>React 게시판 App with Hooks by Iden Han</h1>
@@ -18,7 +20,7 @@ const App = () => {
         </div>
         <div className='seven columns'>
           <h2>View comments</h2>
-          <UserTable users={users} />
+          <UserTable users={users} deleteUser={deleteUser}/>
         </div>
       </div>
     </div>
