@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import userList from './data';
+import UserTable from './tables/UserTable';
+import AddUserForm from './form/AddUserForm';
 
-function App() {
+const App = () => {
+  const [users, setUsers] = useState(userList);
+  const addUser = user => {
+    setUsers([...users, user]);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <h1>React 게시판 App with Hooks by Iden Han</h1>
+      <div className='row'>
+        <div className='five columns'>
+          <h2>Add comment</h2>
+          <AddUserForm addUser={addUser} />
+        </div>
+        <div className='seven columns'>
+          <h2>View comments</h2>
+          <UserTable users={users} />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
