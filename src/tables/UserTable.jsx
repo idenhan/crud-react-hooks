@@ -29,7 +29,7 @@ const UserTable = (props) => {
                     })
                 ) : (
                     <tr>
-                        <td colSpan={4}>No users found</td>
+                        <td colSpan={4}>No users found and I LOVE GALBI!</td>
                     </tr>
                 )   
                 }
